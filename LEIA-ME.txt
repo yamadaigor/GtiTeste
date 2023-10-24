@@ -1,0 +1,27 @@
+Agradeço pela oportunidade em participar do processo.
+
+Fiz a aplicação pensando em boas práticas, mas devido ao tempo
+nem tudo deu pra aplicar (injeção de dependência no WCF e muitas outras coisas).
+
+Obviamente é necessário fazer muitas melhorias e
+ajustar detalhes do requisito, mas devido ao tempo não pude
+dar atenção à elas. 
+
+O sistema está funcional conforme o documento de requisitos: 
+
+ * Aplicação Asp .net MVC consumindo Api rest
+ * WebForms Consumindo WCF. 
+ * Inlcusão, Alteração e exclusão (todas testadas e estão Ok).
+ * Criei o banco de dados local mesmo com script na pasta raiz. 
+
+Agradeço mais uma vez a oportunidade. 
+
+Abraços,
+
+Igor
+ 
+
+
+
+
+

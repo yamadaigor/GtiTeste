@@ -1,0 +1,69 @@
+﻿@model IEnumerable<GtiTeste.AppMVC.Models.ClienteModel>
+@{
+    ViewBag.Title = "Lista de Clientes";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<hr />
+
+@if (TempData["MensagemSucesso"] != null)
+{
+    <div class="alert alert-success">
+        <strong>Sucesso</strong> @TempData["MensagemSucesso"]
+    </div>
+}
+
+@if (TempData["MensagemErro"] != null)
+{
+    <div class="alert alert-danger">
+        <strong>Ops, Algo deu errado.</strong>
+        <ul>
+            @Html.Raw(@TempData["MensagemErro"])
+        </ul>
+    </div>
+}
+
+<p>
+    <a class="btn btn-info" href="@Url.Action("Incluir", "Cliente")">
+        Novo Cliente
+    </a>
+</p>
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cpf)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RG)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nome)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Cpf)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RG)
+                </td>
+                <td class="text-right">
+                    <a class="btn btn-warning" href="@Url.Action("Detalhes","Cliente", new {id = item.Id})" title="Detalhe"><span class="glyphicon glyphicon-search"></span></a>
+                    <a class="btn btn-info" href="@Url.Action("Alterar", "Cliente", new {id = item.Id})" title="Alterar"><spam class="glyphicon glyphicon-pencil"></spam> </a>
+                    <a class="btn btn-danger" onclick="return confirm('Deseja realmente excluir o cliente?')" href="@Url.Action("Excluir", "Cliente", new {id = item.Id})" title="Excluir"><spam class="glyphicon glyphicon-trash"></spam> </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

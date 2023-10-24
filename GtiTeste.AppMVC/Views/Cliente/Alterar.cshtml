@@ -1,0 +1,160 @@
+﻿@model GtiTeste.AppMVC.Models.ClienteModel
+@{
+    ViewBag.Title = "Alterar";
+}
+
+<h1>@ViewBag.Title</h1>
+<hr />
+<br />
+
+@if (TempData["MensagemSucesso"] != null)
+{
+    <div class="alert alert-success">
+        <strong>Sucesso</strong>  @TempData["MensagemSucesso"]
+    </div>
+}
+
+@if (TempData["MensagemErro"] != null)
+{
+    <div class="alert alert-danger">
+        <strong>Ops, Algo deu errado.</strong>
+        <ul>
+            @Html.Raw(@TempData["MensagemErro"])
+        </ul>
+    </div>
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+
+        @Html.Partial("_ErrorSummary")
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Cpf, htmlAttributes: new { @class = "control-label col-md-1" })
+            <div class="col-md-2">
+                @Html.EditorFor(model => model.Cpf, new { htmlAttributes = new { @class = "form-control" } })
+            </div>
+
+            @Html.LabelFor(model => model.Nome, htmlAttributes: new { @class = "control-label col-md-1" })
+            <div class="col-md-4">
+                @Html.EditorFor(model => model.Nome, new { htmlAttributes = new { @class = "form-control" } })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.RG, htmlAttributes: new { @class = "control-label col-md-1" })
+            <div class="col-md-2">
+                @Html.EditorFor(model => model.RG, new { htmlAttributes = new { @class = "form-control" } })
+            </div>
+
+            <label class="control-label col-md-2">Data Expedição </label>
+            <div class="col-md-2">
+                @Html.TextBoxFor(model => model.DataExpedicao, "{0:dd/MM/yyyy}", new { @class = "form-control" })
+            </div>
+
+            <label class="control-label col-md-2">Orgão Expedição </label>
+            <div class="col-md-1">
+                
+                @Html.EditorFor(model => model.OrgaoExpedicao, new { htmlAttributes = new { @class = "form-control" } })
+            </div>
+
+            @Html.LabelFor(model => model.UF, htmlAttributes: new { @class = "control-label col-md-1" })
+            <div class="col-md-1">
+                @Html.DropDownListFor(model => model.UF, ViewBag.EstadosCliente as SelectList, new { @class = "form-control" })
+
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-1">Sexo </label>
+            <div class="col-md-2">
+                @Html.DropDownListFor(model => model.Sexo, ViewBag.ListaSexo as SelectList, new { @class = "form-control" })
+            </div>
+
+            <label class="control-label col-md-2">Dta Nascimento </label>
+            <div class="col-md-2">
+                @Html.TextBoxFor(model => model.DataNascimento, "{0:dd/MM/yyyy}", new { @class = "form-control" })
+            </div>
+
+            <label class="control-label col-md-2">Estado Civil </label>
+            <div class="col-md-2">
+                @Html.DropDownListFor(model => model.EstadoCivil, ViewBag.ListaEstadoCivil as SelectList, new { @class = "form-control" })
+            </div>
+        </div>
+
+        <h1>Endereço</h1>
+        <hr /><br />
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Endereco.Cep, htmlAttributes: new { @class = "control-label col-md-1" })
+            <div class="col-md-3">
+                @Html.EditorFor(model => model.Endereco.Cep, new { htmlAttributes = new { @class = "form-control" } })
+            </div>
+
+            @Html.LabelFor(model => model.Endereco.Logradouro, htmlAttributes: new { @class = "control-label col-md-1" })
+            <div class="col-md-3">
+                @Html.EditorFor(model => model.Endereco.Logradouro, new { htmlAttributes = new { @class = "form-control" } })
+            </div>
+
+            @Html.LabelFor(model => model.Endereco.Numero, htmlAttributes: new { @class = "control-label col-md-1" })
+            <div class="col-md-3">
+                @Html.EditorFor(model => model.Endereco.Numero, new { htmlAttributes = new { @class = "form-control" } })
+            </div>
+        </div>
+
+        <div class="form-group">
+
+            <label class="control-label col-md-1">Compl. </label>
+            <div class="col-md-3">
+                @Html.EditorFor(model => model.Endereco.Complemento, new { htmlAttributes = new { @class = "form-control" } })
+            </div>
+
+            @Html.LabelFor(model => model.Endereco.Bairro, htmlAttributes: new { @class = "control-label col-md-1" })
+            <div class="col-md-2">
+                @Html.EditorFor(model => model.Endereco.Bairro, new { htmlAttributes = new { @class = "form-control" } })
+            </div>
+
+            @Html.LabelFor(model => model.Endereco.Cidade, htmlAttributes: new { @class = "control-label col-md-1" })
+            <div class="col-md-2">
+                @Html.EditorFor(model => model.Endereco.Cidade, new { htmlAttributes = new { @class = "form-control" } })
+            </div>
+
+            @Html.LabelFor(model => model.Endereco.UF, htmlAttributes: new { @class = "control-label col-md-1" })
+            <div class="col-md-1">
+                @Html.DropDownListFor(model => model.Endereco.UF, ViewBag.EstadosEndereco as SelectList, new { @class = "form-control" })
+            </div>
+        </div>
+        <br>
+        <div class="form-group">
+            <div class="col-md-offset-4 col-md-4">
+                <input type="submit" value="Salvar" class="btn btn-primary" />
+                <a class="btn btn-info" href="@Url.Action("Index", "Cliente")">Voltar</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        $(function () {
+            $('#DataExpedicao').datepicker(
+                {
+                    dateFormat: 'dd/mm/yy',
+                    changeMonth: true,
+                    changeYear: true,
+                    yearRange: '1950:2100'
+                });
+        });
+        $(function () {
+            $('#DataNascimento').datepicker(
+                {
+                    dateFormat: 'dd/mm/yy',
+                    changeMonth: true,
+                    changeYear: true,
+                    yearRange: '1950:2100'
+                });
+        });
+    </script>
+}
+

@@ -1,0 +1,1 @@
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="GtiTeste.WCF.ClienteSvc" CodeBehind="ClienteSvc.svc.cs" %>

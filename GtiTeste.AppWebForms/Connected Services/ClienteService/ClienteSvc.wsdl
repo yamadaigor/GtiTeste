@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="ClienteSvc" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:52042/ClienteSvc.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:52042/ClienteSvc.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:52042/ClienteSvc.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/GtiTeste.WCF.Entidades" />
+      <xsd:import schemaLocation="http://localhost:52042/ClienteSvc.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/GtiTeste.Business.DTO" />
+      <xsd:import schemaLocation="http://localhost:52042/ClienteSvc.svc?xsd=xsd4" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IClienteSvc_ObterClientes_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObterClientes" />
+  </wsdl:message>
+  <wsdl:message name="IClienteSvc_ObterClientes_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObterClientesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClienteSvc_Incluir_InputMessage">
+    <wsdl:part name="parameters" element="tns:Incluir" />
+  </wsdl:message>
+  <wsdl:message name="IClienteSvc_Incluir_OutputMessage">
+    <wsdl:part name="parameters" element="tns:IncluirResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClienteSvc_Alterar_InputMessage">
+    <wsdl:part name="parameters" element="tns:Alterar" />
+  </wsdl:message>
+  <wsdl:message name="IClienteSvc_Alterar_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AlterarResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClienteSvc_Excluir_InputMessage">
+    <wsdl:part name="parameters" element="tns:Excluir" />
+  </wsdl:message>
+  <wsdl:message name="IClienteSvc_Excluir_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ExcluirResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClienteSvc_Detalhar_InputMessage">
+    <wsdl:part name="parameters" element="tns:Detalhar" />
+  </wsdl:message>
+  <wsdl:message name="IClienteSvc_Detalhar_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DetalharResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClienteSvc_ObterEstados_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObterEstados" />
+  </wsdl:message>
+  <wsdl:message name="IClienteSvc_ObterEstados_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObterEstadosResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IClienteSvc">
+    <wsdl:operation name="ObterClientes">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClienteSvc/ObterClientes" message="tns:IClienteSvc_ObterClientes_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClienteSvc/ObterClientesResponse" message="tns:IClienteSvc_ObterClientes_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Incluir">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClienteSvc/Incluir" message="tns:IClienteSvc_Incluir_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClienteSvc/IncluirResponse" message="tns:IClienteSvc_Incluir_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Alterar">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClienteSvc/Alterar" message="tns:IClienteSvc_Alterar_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClienteSvc/AlterarResponse" message="tns:IClienteSvc_Alterar_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Excluir">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClienteSvc/Excluir" message="tns:IClienteSvc_Excluir_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClienteSvc/ExcluirResponse" message="tns:IClienteSvc_Excluir_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Detalhar">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClienteSvc/Detalhar" message="tns:IClienteSvc_Detalhar_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClienteSvc/DetalharResponse" message="tns:IClienteSvc_Detalhar_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObterEstados">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClienteSvc/ObterEstados" message="tns:IClienteSvc_ObterEstados_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClienteSvc/ObterEstadosResponse" message="tns:IClienteSvc_ObterEstados_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IClienteSvc" type="tns:IClienteSvc">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ObterClientes">
+      <soap:operation soapAction="http://tempuri.org/IClienteSvc/ObterClientes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Incluir">
+      <soap:operation soapAction="http://tempuri.org/IClienteSvc/Incluir" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Alterar">
+      <soap:operation soapAction="http://tempuri.org/IClienteSvc/Alterar" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Excluir">
+      <soap:operation soapAction="http://tempuri.org/IClienteSvc/Excluir" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Detalhar">
+      <soap:operation soapAction="http://tempuri.org/IClienteSvc/Detalhar" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObterEstados">
+      <soap:operation soapAction="http://tempuri.org/IClienteSvc/ObterEstados" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ClienteSvc">
+    <wsdl:port name="BasicHttpBinding_IClienteSvc" binding="tns:BasicHttpBinding_IClienteSvc">
+      <soap:address location="http://localhost:52042/ClienteSvc.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
