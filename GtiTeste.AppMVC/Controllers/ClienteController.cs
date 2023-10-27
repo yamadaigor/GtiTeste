@@ -21,7 +21,7 @@ namespace GtiTeste.AppMVC.Controllers
         }
         public ActionResult Index()
         {
-            var response = _client.GetAsync("/obter-clientes").Result;
+            var response = _client.GetAsync("obter-clientes").Result;
             // Retorna dos dados dos clientes
             var clientes = DeserializarObjetoResponse<List<ClienteModel>>(response);
 
@@ -37,7 +37,7 @@ namespace GtiTeste.AppMVC.Controllers
         [HttpPost]
         public ActionResult Incluir(ClienteModel cliente)
         {
-            var response = _client.PostAsync("/incluir-cliente", ObterConteudo(cliente)).Result;
+            var response = _client.PostAsync("incluir-cliente", ObterConteudo(cliente)).Result;
 
             var retorno = DeserializarObjetoResponse<RetornoOperacaoDTO>(response);
 
@@ -57,7 +57,7 @@ namespace GtiTeste.AppMVC.Controllers
 
         public ActionResult Alterar(Guid Id)
         {
-            var response = _client.GetAsync($"/obter-cliente?id={Id}").Result;
+            var response = _client.GetAsync($"obter-cliente?id={Id}").Result;
             var cliente = DeserializarObjetoResponse<ClienteModel>(response);
 
             PopularViewBags(cliente);
@@ -68,7 +68,7 @@ namespace GtiTeste.AppMVC.Controllers
         [HttpPost]
         public ActionResult Alterar(ClienteModel cliente)
         {
-            var response = _client.PutAsync("/alterar-cliente", ObterConteudo(cliente)).Result;
+            var response = _client.PutAsync("alterar-cliente", ObterConteudo(cliente)).Result;
 
             var retorno = DeserializarObjetoResponse<RetornoOperacaoDTO>(response);
 
@@ -87,7 +87,7 @@ namespace GtiTeste.AppMVC.Controllers
         public ActionResult Detalhes(Guid Id)
         {
             // Retorna detalhes do cliente
-            var response = _client.GetAsync($"/obter-cliente?id={Id}").Result;
+            var response = _client.GetAsync($"obter-cliente?id={Id}").Result;
 
             var cliente = DeserializarObjetoResponse<ClienteModel>(response);
 
@@ -96,7 +96,7 @@ namespace GtiTeste.AppMVC.Controllers
 
         public ActionResult Excluir(Guid Id)
         {
-            var response = _client.DeleteAsync($"/excluir-cliente?id={Id}").Result;
+            var response = _client.DeleteAsync($"excluir-cliente?id={Id}").Result;
 
             var retorno = DeserializarObjetoResponse<RetornoOperacaoDTO>(response);
 
@@ -141,7 +141,7 @@ namespace GtiTeste.AppMVC.Controllers
 
         private void PopularViewBags(ClienteModel cliente = null)
         {
-            var responseEstados = _client.GetAsync("/obter-todos-estados").Result;
+            var responseEstados = _client.GetAsync("obter-todos-estados").Result;
             var estados = DeserializarObjetoResponse<List<EstadoModel>>(responseEstados);
             
             if (cliente != null)
